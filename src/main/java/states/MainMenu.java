@@ -26,7 +26,9 @@ public class MainMenu extends IState {
         scene.setOnKeyPressed(e ->{
             if (e.getCode() == KeyCode.ENTER) {
                 System.out.println("Pressed Enter!");
-                Main.stateStack.push(new Dungeon());
+                Dungeon dungeon = new Dungeon();
+                Main.stateStack.push(dungeon);
+                dungeon.onEnter(scene);
                 onExit(scene);
             }
         });
@@ -40,6 +42,6 @@ public class MainMenu extends IState {
 
     @Override
     public void onExit(Scene scene) {
-        scene.setOnKeyPressed(null);
+
     }
 }

@@ -21,24 +21,28 @@ public class Dungeon extends IState {
     Mover playerMover;
 
     public Dungeon() {
-        super();
+
     }
 
-    @Override
-    public void onEnter() {
+    public void onEnter(Scene scene) {
         // Initialize game objects
-
-
+        player = new Character("player", 32, 32, 32, 32, 2);
+        playerController = new Controller(scene);
+        playerMover = new Mover(playerController, player);
     }
 
     @Override
     public void update(Scene scene, long currentTime) {
-
+        playerMover.update();
     }
 
     @Override
     public void draw(GraphicsContext gc) {
-        gc.fillText("Dungeon Mode", 200, 200);
+        gc.setFill(Color.WHITE);
+        gc.fillRect(0, 0, 512, 512); // background
+
+        gc.setFill(Color.BLUE);
+        gc.fillRect(player.getX(), player.getY(), player.getWidth(), player.getHeight());
     }
 
 }
