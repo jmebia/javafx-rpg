@@ -1,4 +1,4 @@
-# JRPGfx [WIP][Prototype]
+# jRPGfx [WIP][Prototype]
 A small javafx game framework built with role playing games in mind.<br><br>
 This is what I am currently using to develop my very first RPG.
 
