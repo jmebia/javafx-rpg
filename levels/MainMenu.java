@@ -1,11 +1,12 @@
-package main.java.states;
+package main.framework.levels;
 
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
-import main.java.GameObject;
-import main.java.Game;
+import main.framework.gameobjects.GameObject;
+import main.framework.Game;
+import main.framework.state.IState;
 
 
 public class MainMenu extends IState {

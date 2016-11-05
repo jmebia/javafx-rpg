@@ -1,4 +1,4 @@
-package main.java.inventory;
+package main.framework.inventory;
 
 
 public class Item {

@@ -1,4 +1,4 @@
-package main.java.states;
+package main.framework.state;
 
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;

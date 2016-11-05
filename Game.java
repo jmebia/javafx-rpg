@@ -1,4 +1,4 @@
-package main.java;
+package main.framework;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -7,8 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
-import main.java.states.IState;
-import main.java.states.MainMenu;
+import main.framework.levels.MainMenu;
+import main.framework.state.IState;
+
 import java.util.Stack;
 
 public class Game extends Application {
@@ -38,7 +39,7 @@ public class Game extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setScene(scene);
-        primaryStage.setTitle("RPG Game");
+        primaryStage.setTitle("RPG Game"); // title displayed on game window
         primaryStage.setResizable(false);
         primaryStage.show();
 

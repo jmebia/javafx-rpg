@@ -1,9 +1,9 @@
-package main.java;
+package main.framework.levels.quests;
 
 
 public enum QuestList {
 
-    QUEST1("Quest tile", "Quest description");
+    QUEST1("The Escape", "Looks like I will be interrogated again. There's no way I'm getting out of here.");
 
     String questTitle;
     String questDescription;
@@ -13,7 +13,5 @@ public enum QuestList {
         this.questTitle = questTitle;
         this.questDescription = questDescription;
     }
-
-
 
 }

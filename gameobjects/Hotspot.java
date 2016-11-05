@@ -1,10 +1,8 @@
-package main.java;
+package main.framework.gameobjects;
 
 import java.util.ArrayList;
 
-/**
- * Created by jm on 02/11/2016.
- */
+
 public class Hotspot extends GameObject {
     /**
      * ====================== CONSTRUCTOR ============================

@@ -1,4 +1,4 @@
-package main.java;
+package main.framework.gameobjects;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,15 @@ public class Character extends GameObject {
 
     private ArrayList<GameObject> collisions = new ArrayList<>();
 
+    /**
+     * ====================== CONSTRUCTOR ============================
+     *
+     * @param name
+     * @param width
+     * @param height
+     * @param x
+     * @param y
+     **/
 
     /** ====================== CONSTRUCTOR ============================ **/
 

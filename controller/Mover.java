@@ -1,4 +1,6 @@
-package main.java;
+package main.framework.controller;
+
+import main.framework.gameobjects.Character;
 
 import java.util.ArrayList;
 

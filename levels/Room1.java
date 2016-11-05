@@ -1,10 +1,14 @@
-package main.java.states;
+package main.framework.levels;
 
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import main.java.*;
-import main.java.Character;
+import main.framework.gameobjects.Character;
+import main.framework.controller.Controller;
+import main.framework.controller.Mover;
+import main.framework.gameobjects.GameObject;
+import main.framework.gameobjects.Hotspot;
+import main.framework.state.IState;
 
 import java.util.ArrayList;
 

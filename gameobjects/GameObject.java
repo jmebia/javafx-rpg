@@ -1,6 +1,4 @@
-package main.java;
-
-import java.util.ArrayList;
+package main.framework.gameobjects;
 
 public class GameObject {
 
@@ -72,8 +70,8 @@ public class GameObject {
 
     public double[] getBounds() {
         double[] bounds = {
-                X, // 0
-                Y, // 1
+                X,              // 0
+                Y,              // 1
                 X + getWidth(), // 2
                 Y + getHeight() // 3
         };

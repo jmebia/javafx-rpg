@@ -1,4 +1,4 @@
-package main.java;
+package main.framework.controller;
 
 
 import javafx.scene.Scene;
