@@ -3,7 +3,9 @@ package main.framework.levels.quests;
 
 public enum QuestList {
 
-    QUEST1("The Escape", "Looks like I will be interrogated again. There's no way I'm getting out of here.");
+    QUEST1("title", "quest description"),
+    EXAMPLEQUEST1("Training", "Collect the bacons located on top of the mountain.");
+    // add more quests as much as you want
 
     String questTitle;
     String questDescription;
