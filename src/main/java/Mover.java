@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Mover {
 
-    boolean movingRight = false;
-    boolean movingLeft = false;
-    boolean movingUp = false;
-    boolean movingDown = false;
+    private boolean movingRight = false;
+    private boolean movingLeft = false;
+    private boolean movingUp = false;
+    private boolean movingDown = false;
 
     private Controller controller;
     private Character character;
@@ -58,21 +58,21 @@ public class Mover {
                 character.setFaceRight();
         }
 
-        if(movingLeft){
+        else if(movingLeft){
             if (character.isFacingLeft() && character.getCollision() == null)
                 character.setX(character.getX() - character.getVelocity());
             else
                 character.setFaceLeft();
         }
 
-        if(movingUp){
+        else if(movingUp){
             if (character.isFacingUp() && character.getCollision() == null)
                 character.setY(character.getY() - character.getVelocity());
             else
                 character.setFaceUp();
         }
 
-        if(movingDown){
+        else if(movingDown){
             if (character.isFacingDown() && character.getCollision() == null)
                 character.setY(character.getY() + character.getVelocity());
             else

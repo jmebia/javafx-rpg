@@ -9,7 +9,7 @@ import main.java.Character;
 import java.util.ArrayList;
 
 
-public class Dungeon extends IState {
+public class Room1 extends IState {
 
     Character player;
     ArrayList<GameObject> cellWallsRight;
@@ -20,8 +20,8 @@ public class Dungeon extends IState {
     Controller playerController;
     Mover playerMover;
 
-    public Dungeon() {
-
+    public Room1(Scene scene) {
+        onEnter(scene);
     }
 
     public void onEnter(Scene scene) {
@@ -43,6 +43,8 @@ public class Dungeon extends IState {
 
         gc.setFill(Color.BLUE);
         gc.fillRect(player.getX(), player.getY(), player.getWidth(), player.getHeight());
+
+        gc.fillText("Hello!", 1,1);
     }
 
 }

@@ -14,11 +14,11 @@ public class Character extends GameObject {
 
     /** ====================== CONSTRUCTOR ============================ **/
 
-    public Character(String name, int width, int height, int x, int y) {
+    public Character(String name, double width, double height, double x, double y) {
         super(name, width, height, x, y);
     }
 
-    public Character(String name, int width, int height, int x, int y, int velocity) {
+    public Character(String name, double width, double height, double x, double y, double velocity) {
         super(name, width, height, x, y);
         this.setVelocity(velocity);
     }

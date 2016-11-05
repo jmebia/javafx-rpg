@@ -5,7 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import main.java.GameObject;
-import main.java.Main;
+import main.java.Game;
 
 
 public class MainMenu extends IState {
@@ -26,9 +26,7 @@ public class MainMenu extends IState {
         scene.setOnKeyPressed(e ->{
             if (e.getCode() == KeyCode.ENTER) {
                 System.out.println("Pressed Enter!");
-                Dungeon dungeon = new Dungeon();
-                Main.stateStack.push(dungeon);
-                dungeon.onEnter(scene);
+                Game.stateStack.push(new Room1(scene));
                 onExit(scene);
             }
         });

@@ -9,11 +9,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 import main.java.states.IState;
 import main.java.states.MainMenu;
-
 import java.util.Stack;
 
-
-public class Main extends Application {
+public class Game extends Application {
 
     private Group root;
     private Scene scene;
