@@ -1,7 +1,7 @@
-package main.framework.levels.characters;
+package main.framework.entities;
 
 
-public class Character {
+public class Character extends Entity {
 
     private String name = "";
 

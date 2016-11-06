@@ -1,4 +1,4 @@
-package main.framework.levels;
+package main.framework.state.levels;
 
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;

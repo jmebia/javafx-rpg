@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
-import main.framework.levels.MainMenu;
+import main.framework.state.MainMenuState;
 import main.framework.state.IState;
 
 import java.util.Stack;
@@ -33,7 +33,7 @@ public class Game extends Application {
 
         // push initial states
         stateStack = new Stack<>();
-        stateStack.push(new MainMenu(scene, gc));
+        stateStack.push(new MainMenuState(scene, gc));
     }
 
     @Override

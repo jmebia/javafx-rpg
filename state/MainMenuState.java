@@ -1,4 +1,4 @@
-package main.framework.levels;
+package main.framework.state;
 
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
@@ -6,10 +6,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import main.framework.gameobjects.GameObject2D;
 import main.framework.Game;
-import main.framework.state.IState;
+import main.framework.state.levels.Room1;
 
 
-public class MainMenu implements IState {
+public class MainMenuState implements IState {
 
     /**------------------------------------**/
 
@@ -20,7 +20,7 @@ public class MainMenu implements IState {
 
     GameObject2D button;
 
-    public MainMenu(Scene scene, GraphicsContext graphicsContext) {
+    public MainMenuState(Scene scene, GraphicsContext graphicsContext) {
         this.graphicsContext = graphicsContext;
         this.scene = scene;
     }

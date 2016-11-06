@@ -21,8 +21,6 @@ public class Character2D extends GameObject2D {
      * @param y
      **/
 
-    /** ====================== CONSTRUCTOR ============================ **/
-
     public Character2D(String name, double width, double height, double x, double y) {
         super(name, width, height, x, y);
     }
@@ -98,11 +96,11 @@ public class Character2D extends GameObject2D {
         GameObject2D collided = null;
         double[] characterBounds = this.getBounds();
 
-        // look through the list of collisions for this characters
+        // look through the list of collisions for this entities
         for(GameObject2D c : collisions) {
             double[] otherObjectBounds = c.getBounds();
 
-            // checks if the characters collides with something from the direction he's facing
+            // checks if the entities collides with something from the direction he's facing
             if(this.isFacingUp()) {
                 // if this y1 is less than the y1 of the other, then collide
                 if(characterBounds[1] == otherObjectBounds[3] && (characterBounds[3] != otherObjectBounds[1] &&
@@ -154,7 +152,7 @@ public class Character2D extends GameObject2D {
     /** ============================== ACTION EVENT HANDLER ===================== **/
 
     public void actionBy(Character2D c) {
-        // get action of Character2D c for this characters
+        // get action of Character2D c for this entities
     }
 
 }
