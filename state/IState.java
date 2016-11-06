@@ -7,16 +7,14 @@ import javafx.scene.canvas.GraphicsContext;
  * serves as the template of other game states or levels
  */
 
-public abstract class IState {
+public interface IState {
 
-    public IState() { onEnter(); }
+    public void onEnter();
 
-    public void onEnter() {}
+    public void update(long currentTime);
 
-    public void update(Scene scene, long currentTime) {}
+    public void draw();
 
-    public void draw(GraphicsContext gc) {}
-
-    public void onExit(Scene scene) {}
+    public void onExit();
 
 }

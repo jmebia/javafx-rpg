@@ -2,14 +2,14 @@ package main.framework.gameobjects;
 
 import java.util.ArrayList;
 
-public class Character extends GameObject {
+public class Character2D extends GameObject2D {
 
     private boolean isFacingRight = false;
     private boolean isFacingDown = true;
     private boolean isFacingUp = false;
     private boolean isFacingLeft = false;
 
-    private ArrayList<GameObject> collisions = new ArrayList<>();
+    private ArrayList<GameObject2D> collisions = new ArrayList<>();
 
     /**
      * ====================== CONSTRUCTOR ============================
@@ -23,11 +23,11 @@ public class Character extends GameObject {
 
     /** ====================== CONSTRUCTOR ============================ **/
 
-    public Character(String name, double width, double height, double x, double y) {
+    public Character2D(String name, double width, double height, double x, double y) {
         super(name, width, height, x, y);
     }
 
-    public Character(String name, double width, double height, double x, double y, double velocity) {
+    public Character2D(String name, double width, double height, double x, double y, double velocity) {
         super(name, width, height, x, y);
         this.setVelocity(velocity);
     }
@@ -86,20 +86,20 @@ public class Character extends GameObject {
 
     /** ==================== COLLISION ============================ **/
 
-    public void addCollision(GameObject gameObject) {
-        collisions.add(gameObject);
+    public void addCollision(GameObject2D gameObject2D) {
+        collisions.add(gameObject2D);
     }
 
-    public void addCollision(ArrayList<GameObject> gameObject) {
-        collisions.addAll(gameObject);
+    public void addCollision(ArrayList<GameObject2D> gameObject2D) {
+        collisions.addAll(gameObject2D);
     }
 
-    public GameObject getCollision() {
-        GameObject collided = null;
+    public GameObject2D getCollision() {
+        GameObject2D collided = null;
         double[] characterBounds = this.getBounds();
 
         // look through the list of collisions for this character
-        for(GameObject c : collisions) {
+        for(GameObject2D c : collisions) {
             double[] otherObjectBounds = c.getBounds();
 
             // checks if the character collides with something from the direction he's facing
@@ -153,8 +153,8 @@ public class Character extends GameObject {
 
     /** ============================== ACTION EVENT HANDLER ===================== **/
 
-    public void actionBy(Character c) {
-        // get action of Character c for this character
+    public void actionBy(Character2D c) {
+        // get action of Character2D c for this character
     }
 
 }

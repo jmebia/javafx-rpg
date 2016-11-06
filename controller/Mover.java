@@ -1,6 +1,6 @@
 package main.framework.controller;
 
-import main.framework.gameobjects.Character;
+import main.framework.gameobjects.Character2D;
 
 import java.util.ArrayList;
 
@@ -12,11 +12,11 @@ public class Mover {
     private boolean movingDown = false;
 
     private Controller controller;
-    private Character character;
+    private Character2D character2D;
     private ArrayList<String> input;
 
-    public Mover(Controller controller, Character character) {
-        this.character = character;
+    public Mover(Controller controller, Character2D character2D) {
+        this.character2D = character2D;
         this.controller = controller;
     }
 
@@ -54,31 +54,31 @@ public class Mover {
     public void updatePos() {
 
         if(movingRight){
-            if (character.isFacingRight() && character.getCollision() == null)
-                character.setX(character.getX() + character.getVelocity());
+            if (character2D.isFacingRight() && character2D.getCollision() == null)
+                character2D.setX(character2D.getX() + character2D.getVelocity());
             else
-                character.setFaceRight();
+                character2D.setFaceRight();
         }
 
         else if(movingLeft){
-            if (character.isFacingLeft() && character.getCollision() == null)
-                character.setX(character.getX() - character.getVelocity());
+            if (character2D.isFacingLeft() && character2D.getCollision() == null)
+                character2D.setX(character2D.getX() - character2D.getVelocity());
             else
-                character.setFaceLeft();
+                character2D.setFaceLeft();
         }
 
         else if(movingUp){
-            if (character.isFacingUp() && character.getCollision() == null)
-                character.setY(character.getY() - character.getVelocity());
+            if (character2D.isFacingUp() && character2D.getCollision() == null)
+                character2D.setY(character2D.getY() - character2D.getVelocity());
             else
-                character.setFaceUp();
+                character2D.setFaceUp();
         }
 
         else if(movingDown){
-            if (character.isFacingDown() && character.getCollision() == null)
-                character.setY(character.getY() + character.getVelocity());
+            if (character2D.isFacingDown() && character2D.getCollision() == null)
+                character2D.setY(character2D.getY() + character2D.getVelocity());
             else
-                character.setFaceDown();
+                character2D.setFaceDown();
         }
 
     }

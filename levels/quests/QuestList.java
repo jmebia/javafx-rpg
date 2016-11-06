@@ -3,7 +3,7 @@ package main.framework.levels.quests;
 
 public enum QuestList {
 
-    QUEST1("The Escape", "Looks like I will be interrogated again. There's no way I'm getting out of here.");
+    QUEST1("quest title here", "quest description here");
 
     String questTitle;
     String questDescription;

@@ -33,7 +33,7 @@ public class Game extends Application {
 
         // push initial states
         stateStack = new Stack<>();
-        stateStack.push(new MainMenu());
+        stateStack.push(new MainMenu(scene, gc));
     }
 
     @Override
@@ -48,8 +48,8 @@ public class Game extends Application {
             @Override
             public void handle(long now) {
                 // finds the last pushed state in the stack then puts it in the game loop
-                stateStack.lastElement().update(scene, now);
-                stateStack.lastElement().draw(gc);
+                stateStack.lastElement().update(now);
+                stateStack.lastElement().draw();
             }
         }.start();
 

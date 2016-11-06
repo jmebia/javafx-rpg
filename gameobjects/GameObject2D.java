@@ -1,6 +1,6 @@
 package main.framework.gameobjects;
 
-public class GameObject {
+public class GameObject2D {
 
     private String name;
 
@@ -13,7 +13,7 @@ public class GameObject {
 
     /** ====================== CONSTRUCTOR ============================ **/
 
-    public GameObject(String name, double width, double height, double x, double y) {
+    public GameObject2D(String name, double width, double height, double x, double y) {
         this.name = name;
         this.width = width;
         this.height = height;
