@@ -98,11 +98,11 @@ public class Character2D extends GameObject2D {
         GameObject2D collided = null;
         double[] characterBounds = this.getBounds();
 
-        // look through the list of collisions for this character
+        // look through the list of collisions for this characters
         for(GameObject2D c : collisions) {
             double[] otherObjectBounds = c.getBounds();
 
-            // checks if the character collides with something from the direction he's facing
+            // checks if the characters collides with something from the direction he's facing
             if(this.isFacingUp()) {
                 // if this y1 is less than the y1 of the other, then collide
                 if(characterBounds[1] == otherObjectBounds[3] && (characterBounds[3] != otherObjectBounds[1] &&
@@ -154,7 +154,7 @@ public class Character2D extends GameObject2D {
     /** ============================== ACTION EVENT HANDLER ===================== **/
 
     public void actionBy(Character2D c) {
-        // get action of Character2D c for this character
+        // get action of Character2D c for this characters
     }
 
 }
