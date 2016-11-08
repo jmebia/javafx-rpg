@@ -9,12 +9,12 @@ import javafx.scene.canvas.GraphicsContext;
 
 public interface IState {
 
-    public void onEnter();
+    void onEnter();
 
-    public void update(long currentTime);
+    void update(long currentTime);
 
-    public void draw();
+    void draw();
 
-    public void onExit();
+    void onExit();
 
 }

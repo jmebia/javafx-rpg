@@ -13,8 +13,11 @@ public class CombatState implements IState {
 
     /**----------------------------------**/
 
+    private Character playerCharacter;
+
     public CombatState(Scene scene, GraphicsContext graphicsContext) {
-        onEnter();
+        this.scene = scene;
+        this.graphicsContext = graphicsContext;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package main.framework.controller;
 
-import main.framework.gameobjects.Character2D;
+import main.framework.object2D.Character2D;
 
 import java.util.ArrayList;
 

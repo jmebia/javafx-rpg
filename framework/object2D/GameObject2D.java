@@ -1,4 +1,4 @@
-package main.framework.gameobjects;
+package main.framework.object2D;
 
 public class GameObject2D {
 

@@ -1,4 +1,4 @@
-package main.framework.quests;
+package main.framework.game.quests;
 
 
 public enum QuestList {

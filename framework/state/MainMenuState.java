@@ -4,21 +4,19 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
-import main.framework.gameobjects.GameObject2D;
-import main.framework.Game;
-import main.framework.state.levels.Room1;
+import main.framework.object2D.GameObject2D;
 
 
 public class MainMenuState implements IState {
 
     /**------------------------------------**/
 
-    private Scene scene;
-    private GraphicsContext graphicsContext;
+    private final Scene scene;
+    private final GraphicsContext graphicsContext;
 
     /**------------------------------------**/
 
-    GameObject2D button;
+    private GameObject2D button;
 
     public MainMenuState(Scene scene, GraphicsContext graphicsContext) {
         this.graphicsContext = graphicsContext;
@@ -27,11 +25,6 @@ public class MainMenuState implements IState {
 
     @Override
     public void onEnter() {
-
-    }
-
-    @Override
-    public void update(long currentTime) {
         scene.setOnKeyPressed(e ->{
             if (e.getCode() == KeyCode.ENTER) {
                 System.out.println("Pressed Enter!");
@@ -41,14 +34,20 @@ public class MainMenuState implements IState {
     }
 
     @Override
+    public void update(long currentTime) {
+        // main menu
+    }
+
+    @Override
     public void draw() {
         graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillText("PRESS ENTER TO START", 230, 240);
+        graphicsContext.fillText("PRESS ENTER TO START", 230, 236);
     }
 
     @Override
     public void onExit() {
         // pushes room 1 to the stack
-        Game.stateStack.push(new Room1(scene, graphicsContext));
+        StateStack.push("room");
+        System.out.println("Exited Main Menu State. Now going to room");
     }
 }
