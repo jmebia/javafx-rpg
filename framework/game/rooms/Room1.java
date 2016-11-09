@@ -1,4 +1,4 @@
-package main.framework.game.levels;
+package main.framework.game.rooms;
 
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
