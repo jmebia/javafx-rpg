@@ -1,25 +1,19 @@
 package main.framework.game;
 
-import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import main.framework.animation.SpriteAnimator;
 import main.framework.state.MainMenuState;
 import main.framework.state.StateStack;
 import main.framework.game.rooms.Room1;
 
 public class Game extends Application {
 
-    private Group root;
+    public static Group root;
     private Scene scene;
     private Canvas canvas;
     private GraphicsContext gc;
@@ -47,18 +41,6 @@ public class Game extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        /*
-        final ImageView imageView = new ImageView(image);
-        imageView.setViewport(new Rectangle2D(0, 32, 32, 32));
-        root.getChildren().add(imageView);
-        sa = new SpriteAnimator(
-                imageView,
-                Duration.millis(500), 3, 3, 0, 32, 32, 32
-        );
-
-        sa.setCycleCount(Animation.INDEFINITE);
-        sa.play();
-        */
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("RPG Game"); // title displayed on game window
@@ -70,10 +52,9 @@ public class Game extends Application {
             @Override
             public void handle(long now) {
 
-
                 // finds the last pushed state in the stack then puts it in the game loop
-                // StateStack.getCurrentState().update(now);
-                // StateStack.getCurrentState().draw();
+                StateStack.getCurrentState().update(now);
+                StateStack.getCurrentState().draw();
             }
         }.start();
 

@@ -139,6 +139,7 @@ public class Character2D extends GameObject2D {
                 if(characterBounds[2] == otherObjectBounds[0] && (characterBounds[0] != otherObjectBounds[2] && (
                         (characterBounds[1] > otherObjectBounds[1] && characterBounds[1] < otherObjectBounds[3]) ||
                                 (characterBounds[3] < otherObjectBounds[3] && characterBounds[3] > otherObjectBounds[1]) ||
+                                (characterBounds[3] == otherObjectBounds[3] && characterBounds[1] == otherObjectBounds[1]) ||
                                 (characterBounds[1] > otherObjectBounds[1] && characterBounds[3] < otherObjectBounds[3]) ))) {
                     collided = c;
                     System.out.println(this.getName() + ": Collided Rightward");

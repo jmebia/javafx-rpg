@@ -46,6 +46,8 @@ public class MainMenuState implements IState {
 
     @Override
     public void onExit() {
+        scene.setOnKeyPressed(null);
+        scene.setOnKeyReleased(null);
         // pushes room 1 to the stack
         StateStack.push("room");
         System.out.println("Exited Main Menu State. Now going to room");

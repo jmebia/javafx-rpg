@@ -1,15 +1,28 @@
 package main.framework.game.rooms;
 
+import javafx.geometry.Rectangle2D;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
+import main.framework.animation.SpriteAnimationThread;
+import main.framework.animation.SpriteAnimator;
 import main.framework.object2D.Character2D;
 import main.framework.controller.Controller;
 import main.framework.controller.Mover;
 import main.framework.object2D.GameObject2D;
 import main.framework.object2D.Hotspot;
 import main.framework.state.IState;
+
+import static main.framework.game.Game.root;
+
+/*
+
+    Sample game level
+ */
 
 
 public class Room1 implements IState {
@@ -26,6 +39,14 @@ public class Room1 implements IState {
     private Controller playerController;
     private Mover playerMover;
     private PerspectiveCamera camera = new PerspectiveCamera(true);
+    private ImageView imageView;
+
+    // sprite
+    Image image;
+    SpriteAnimator animator;
+
+    // animation thread
+    private SpriteAnimationThread animationThread;
     /**---------------------------------**/
 
     public Room1(Scene scene, GraphicsContext graphicsContext) {
@@ -37,7 +58,7 @@ public class Room1 implements IState {
     public void onEnter() {
         // Initialize game objects
         // 2d characters and controller
-        player = new Character2D("player", 32, 32, 32, 32, 2);
+        player = new Character2D("player", /*w*/32, /*h*/32, /*x*/32, /*y*/32, 2);
         playerController = new Controller(scene);
         playerMover = new Mover(playerController, player);
 
@@ -59,10 +80,27 @@ public class Room1 implements IState {
         camera.setFarClip(2000.0);
         camera.setFieldOfView(35);
         scene.setCamera(camera);
+
+        // set up image
+        image = new Image(getClass().getResourceAsStream("../resources/EntitySet.png"));
+
+        imageView = new ImageView(image);
+        imageView.setViewport(new Rectangle2D(0, 32, 32, 32));
+        root.getChildren().add(imageView);
+
+        // instantiates sprite animator
+        animator = new SpriteAnimator( imageView,
+                Duration.millis(1500), 3, 3,/*offsetX*/ 0, /*offsetY*/ 0, 32, 32
+        );
+
+        animationThread = new SpriteAnimationThread(animator);
+
+        animationThread.run();
     }
 
     @Override
     public void update(long currentTime) {
+        animator.update(this.player);
         playerMover.update();
         camera.setTranslateY(player.getY());
         camera.setTranslateX(player.getX());

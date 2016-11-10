@@ -1,5 +1,6 @@
 package main.framework.controller;
 
+import main.framework.entities.Character;
 import main.framework.object2D.Character2D;
 
 import java.util.ArrayList;
@@ -18,6 +19,10 @@ public class Mover {
     public Mover(Controller controller, Character2D character2D) {
         this.character2D = character2D;
         this.controller = controller;
+    }
+
+    public Character2D getCharacter2D() {
+        return character2D;
     }
 
     public void update() {

@@ -5,14 +5,16 @@ import javafx.animation.Transition;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import main.framework.controller.Mover;
+import main.framework.object2D.Character2D;
 
 public class SpriteAnimator extends Transition{
 
-    private final ImageView imageView;
+    private ImageView imageView;
     private final int count;
     private final int columns;
-    private final int offsetX;
-    private final int offsetY;
+    private int offsetX;
+    private int offsetY;
     private final int width;
     private final int height;
 
@@ -31,6 +33,17 @@ public class SpriteAnimator extends Transition{
         this.width = width;
         this.height = height;
         setCycleDuration(duration);
+    }
+
+    public void update(Character2D character) {
+        if (character.isFacingDown()) offsetY = 0;
+        else if (character.isFacingLeft()) offsetY = 32;
+        else if (character.isFacingRight()) offsetY = 64;
+        else if (character.isFacingUp()) offsetY = 96;
+
+        // updating
+        imageView.setTranslateX(character.getX());
+        imageView.setTranslateY(character.getY());
     }
 
     @Override
