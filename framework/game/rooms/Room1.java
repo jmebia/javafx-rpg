@@ -20,8 +20,7 @@ import main.framework.state.IState;
 import static main.framework.game.Game.root;
 
 /*
-
-    Sample game level
+ * Sample game level
  */
 
 
@@ -42,7 +41,8 @@ public class Room1 implements IState {
     private ImageView imageView;
 
     // sprite
-    Image image;
+    Image tileset;
+    Image image; // player sprite image
     SpriteAnimator animator;
 
     // animation thread
@@ -56,6 +56,13 @@ public class Room1 implements IState {
 
     @Override
     public void onEnter() {
+        // scene bg
+        scene.setFill(Color.BLACK);
+
+        // change canvas size
+        graphicsContext.getCanvas().setHeight(512);
+        graphicsContext.getCanvas().setWidth(768);
+
         // Initialize game objects
         // 2d characters and controller
         player = new Character2D("player", /*w*/32, /*h*/32, /*x*/32, /*y*/32, 2);
@@ -63,7 +70,7 @@ public class Room1 implements IState {
         playerMover = new Mover(playerController, player);
 
         // 2d game objects (objects with no collisions)
-        wall = new GameObject2D("wall", 32, 32, 150, 150);
+        wall = new GameObject2D("wall", 32, 32, 256, 224);
         player.addCollision(wall);
 
         // hotspots and triggers
@@ -81,8 +88,9 @@ public class Room1 implements IState {
         camera.setFieldOfView(35);
         scene.setCamera(camera);
 
-        // set up image
+        // set up images
         image = new Image(getClass().getResourceAsStream("../resources/EntitySet.png"));
+        tileset = new Image(getClass().getResourceAsStream("../resources/tileset.png"));
 
         imageView = new ImageView(image);
         imageView.setViewport(new Rectangle2D(0, 32, 32, 32));
@@ -90,7 +98,7 @@ public class Room1 implements IState {
 
         // instantiates sprite animator
         animator = new SpriteAnimator( imageView,
-                Duration.millis(1500), 3, 3,/*offsetX*/ 0, /*offsetY*/ 0, 32, 32
+                Duration.millis(300), 3, 3,/*offsetX*/ 0, /*offsetY*/ 0, 32, 32
         );
 
         animationThread = new SpriteAnimationThread(animator);
@@ -100,7 +108,7 @@ public class Room1 implements IState {
 
     @Override
     public void update(long currentTime) {
-        animator.update(this.player);
+        animator.update(this.playerMover, 0, 32, 64, 96);
         playerMover.update();
         camera.setTranslateY(player.getY());
         camera.setTranslateX(player.getX());
@@ -112,8 +120,13 @@ public class Room1 implements IState {
          * placeholder graphics for 2d objects including the hotspots
          *
          */
-        graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillRect(0, 0, 512, 512); // background
+
+        // draw grass floor
+        for (int y = 32; y <= 512; y += 32) {
+            for (int x = 0; x <= 768; x += 32) {
+                graphicsContext.drawImage(tileset, 416, 0, 32, 32, x, y, 32, 32);
+            }
+        }
 
         graphicsContext.setFill(Color.YELLOW);
         graphicsContext.fillRect(wall.getX(), wall.getY(), wall.getWidth(), wall.getHeight());

@@ -25,6 +25,14 @@ public class Mover {
         return character2D;
     }
 
+    public boolean isMoving() {
+        boolean moving = false;
+
+        if (movingRight==true || movingDown==true || movingLeft==true || movingUp==true) moving = true;
+
+        return moving;
+    }
+
     public void update() {
 
         input = controller.getInputs();

@@ -6,12 +6,11 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import main.framework.controller.Mover;
-import main.framework.object2D.Character2D;
 
 public class SpriteAnimator extends Transition{
 
     private ImageView imageView;
-    private final int count;
+    private int count;
     private final int columns;
     private int offsetX;
     private int offsetY;
@@ -35,15 +34,23 @@ public class SpriteAnimator extends Transition{
         setCycleDuration(duration);
     }
 
-    public void update(Character2D character) {
-        if (character.isFacingDown()) offsetY = 0;
-        else if (character.isFacingLeft()) offsetY = 32;
-        else if (character.isFacingRight()) offsetY = 64;
-        else if (character.isFacingUp()) offsetY = 96;
+    public void update(Mover mover, int offsetYDown, int offsetYLeft, int offsetYRight, int offsetYUp) {
+        if(mover.isMoving()) {
+            play();
+            count = 3;
+            offsetX = 0;
+            if (mover.getCharacter2D().isFacingDown()) offsetY = offsetYDown;
+            else if (mover.getCharacter2D().isFacingLeft()) offsetY = offsetYLeft;
+            else if (mover.getCharacter2D().isFacingRight()) offsetY = offsetYRight;
+            else if (mover.getCharacter2D().isFacingUp()) offsetY = offsetYUp;
+        } else {
+            count = 1;
+            offsetX = 32;
+        }
 
         // updating
-        imageView.setTranslateX(character.getX());
-        imageView.setTranslateY(character.getY());
+        imageView.setTranslateX(mover.getCharacter2D().getX());
+        imageView.setTranslateY(mover.getCharacter2D().getY());
     }
 
     @Override

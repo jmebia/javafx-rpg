@@ -17,7 +17,6 @@ public class SpriteAnimationThread implements Runnable {
     @Override
     public void run() {
         System.out.println("Running thread...");
-        animator.play();
     }
 
 }
