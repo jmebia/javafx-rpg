@@ -9,6 +9,8 @@ import javafx.scene.canvas.GraphicsContext;
 
 public interface IState {
 
+    void init();
+
     void onEnter();
 
     void update(long currentTime);
@@ -16,5 +18,7 @@ public interface IState {
     void draw();
 
     void onExit();
+
+    void onClose();
 
 }

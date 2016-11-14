@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public class Controller {
 
     private ArrayList<String> input;
+    private boolean disabled = false;
+
+    // constructor
 
     public Controller(Scene scene) {
 
@@ -16,7 +19,7 @@ public class Controller {
         scene.setOnKeyPressed(e -> {
             System.out.println("Pressed " + e.getCode().toString());
             String keyCode = e.getCode().toString();
-            if (!input.contains(keyCode))
+            if (!disabled && !input.contains(keyCode))
                 input.add(keyCode);
 
         });
@@ -24,13 +27,24 @@ public class Controller {
         scene.setOnKeyReleased(e -> {
             System.out.println("Released " + e.getCode().toString());
             String keyCode = e.getCode().toString();
-            input.remove(keyCode);
+            if (input.contains(keyCode))
+                input.remove(keyCode);
 
         });
     }
 
+    // public methods
+
     public ArrayList<String> getInputs() {
         return input;
+    }
+
+    public void setDisabled(boolean b) {
+        this.disabled = b;
+    }
+
+    public boolean isDisabled() {
+        return disabled;
     }
 
 }

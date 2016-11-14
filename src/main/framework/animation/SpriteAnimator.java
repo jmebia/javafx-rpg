@@ -39,7 +39,27 @@ public class SpriteAnimator extends Transition{
             play();
             count = 3;
             offsetX = 0;
-            if (mover.getCharacter2D().isFacingDown()) offsetY = offsetYDown;
+
+            // diagonal movement
+            if (mover.isMovingUp() && mover.isMovingRight() ) {
+                offsetY = offsetYUp;
+                offsetX = 96;
+            }
+            else if (mover.isMovingUp() && mover.isMovingLeft()) {
+                offsetY = offsetYLeft;
+                offsetX = 96;
+            }
+            else if (mover.isMovingDown() && mover.isMovingRight()) {
+                offsetY = offsetYRight;
+                offsetX = 96;
+            }
+            else if (mover.isMovingDown() && mover.isMovingLeft()) {
+                offsetY = offsetYDown;
+                offsetX = 96;
+            }
+
+            // straight movement
+            else if (mover.getCharacter2D().isFacingDown()) offsetY = offsetYDown;
             else if (mover.getCharacter2D().isFacingLeft()) offsetY = offsetYLeft;
             else if (mover.getCharacter2D().isFacingRight()) offsetY = offsetYRight;
             else if (mover.getCharacter2D().isFacingUp()) offsetY = offsetYUp;
@@ -47,10 +67,12 @@ public class SpriteAnimator extends Transition{
             count = 1;
             offsetX = 32;
         }
+    }
 
+    public void updateView(Mover mover) {
         // updating
-        imageView.setTranslateX(mover.getCharacter2D().getX());
-        imageView.setTranslateY(mover.getCharacter2D().getY());
+        imageView.setTranslateX(mover.getCharacter2D().getX() - 6); // default is without the minus modifier
+        imageView.setTranslateY(mover.getCharacter2D().getY() - 16); // default is without the minus modifier
     }
 
     @Override

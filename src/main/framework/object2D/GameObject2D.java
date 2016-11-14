@@ -1,6 +1,8 @@
 package main.framework.object2D;
 
-public class GameObject2D {
+import javafx.scene.shape.Rectangle;
+
+public class GameObject2D extends Rectangle {
 
     private String name;
 
@@ -15,10 +17,10 @@ public class GameObject2D {
 
     public GameObject2D(String name, double width, double height, double x, double y) {
         this.name = name;
-        this.width = width;
-        this.height = height;
-        X = x;
-        Y = y;
+        setWidth(width);
+        setHeight(height);
+        setX(x);
+        setY(y);
     }
 
     /** ============================ GETTERS ================================ **/
@@ -27,21 +29,6 @@ public class GameObject2D {
         return name;
     }
 
-    public double getX() {
-        return X;
-    }
-
-    public double getY() {
-        return Y;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public double getHeight() {
-        return height;
-    }
 
     public double getVelocity() {
         return velocity;
@@ -53,29 +40,9 @@ public class GameObject2D {
         this.name = name;
     }
 
-    public void setX(double x) {
-        X = x;
-    }
-
-    public void setY(double y) {
-        Y = y;
-    }
-
     public void setVelocity(double v) {
         velocity = v;
     }
 
-
-    /** ========================= COLLISION HANDLERS ===================== **/
-
-    public double[] getBounds() {
-        double[] bounds = {
-                X,              // 0
-                Y,              // 1
-                X + getWidth(), // 2
-                Y + getHeight() // 3
-        };
-        return bounds;
-    }
 
 }
