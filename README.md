@@ -1,4 +1,4 @@
-# rpg framework [WIP][Prototype]
+# rpg framework
 A small java rpg framework that I am working on.<br><br>
 
 ### Things you need:
