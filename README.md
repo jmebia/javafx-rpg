@@ -1,5 +1,5 @@
-# rpg framework
-A small java rpg framework that I am working on.<br><br>
+# rpg
+A small java rpg prototype that I am working on.<br><br>
 
 ### Things you need:
 - This
